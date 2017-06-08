@@ -24,9 +24,12 @@
 
 
  <% if current_user %>
-    Welcome <%= current_user.email %> <%= link_to 'Logout', destroy_user_session_path, method: :delete %> <br>
+    Welcome <%= current_user.email %> <!--%= link_to 'Logout', destroy_user_session_path, method: :delete %--> <br>
     Name <%= current_user.name %><br>
     DOB <%= current_user.date_of_birth %><br>
+    Address <%= current_user.address %><br>
+    Phone <%= current_user.phone %><br>
+
     <p>
   <strong>Image:</strong>
   <%= image_tag current_user.image.thumb.url %>
