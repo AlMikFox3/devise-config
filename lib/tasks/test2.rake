@@ -13,4 +13,4 @@ task :test2 => :environment do
     	@user.save
     	puts "#{i}. #{@user.name} ---- #{@user.email} ---- #{@user.address}"
     end
-  end
+end
