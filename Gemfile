@@ -10,7 +10,7 @@ gem 'sqlite3'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-
+gem 'will_paginate'
 gem 'faker', '1.7.3'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
