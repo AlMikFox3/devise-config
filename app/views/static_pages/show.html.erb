@@ -1,6 +1,10 @@
 <h1><br/>Listing Users</h1>
-
-<table>
+<script>
+  $(document).ready(function() {
+    $('.datatable').dataTable();
+  } );
+</script>
+<table id ="datatable">
   <thead>
     <tr>
       <th>Name</th>
@@ -24,4 +28,4 @@
 
 <br>
 
-<%= will_paginate @users %>
+<!--%= will_paginate @users %-->

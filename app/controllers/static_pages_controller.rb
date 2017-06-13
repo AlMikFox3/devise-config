@@ -4,7 +4,8 @@ class StaticPagesController < ApplicationController
     end
 
     def show
-    	@users = User.paginate(:page => params[:page], per_page: 10)
+    	#@users = User.paginate(:page => params[:page], per_page: 10)
+    	@users = User.all
     end
 
 end

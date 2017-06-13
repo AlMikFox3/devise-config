@@ -6,7 +6,7 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
-
+gem 'jquery-datatables-rails' , git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
