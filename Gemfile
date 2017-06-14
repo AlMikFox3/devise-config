@@ -7,6 +7,12 @@ gem 'rails', '4.2.5'
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'jquery-datatables-rails' , git: 'git://github.com/rweng/jquery-datatables-rails.git'
+
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+
+gem "simple_calendar"
+
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'

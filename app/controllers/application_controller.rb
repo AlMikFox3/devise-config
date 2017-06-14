@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :phone
     devise_parameter_sanitizer.for(:sign_in) << :phone
     devise_parameter_sanitizer.for(:account_update) << :phone
+
+    devise_parameter_sanitizer.for(:sign_up) << :admin
+    devise_parameter_sanitizer.for(:sign_in) << :admin
+    devise_parameter_sanitizer.for(:account_update) << :admin
     
   end
   

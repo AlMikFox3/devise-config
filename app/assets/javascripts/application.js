@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require dataTables/jquery.dataTables
+//= require moment 
+//= require fullcalendar
+
+
+$('#calendar').fullCalendar({});
