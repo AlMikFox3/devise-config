@@ -9,7 +9,31 @@ class StaticPagesController < ApplicationController
     	@users = User.all
     end
 
-    private
+    
+
+	def edit
+  		@u = User.find(params[:id])
+  	end
+	
+	def update
+  		@article = User.find(params[:id])
+ 
+ 		 if @article.update(article_params)
+    		redirect_to @article
+  		else
+    		render 'edit'
+  end
+end
+
+  def destroy
+  	@u = User.find(params[:user_id])
+  	#puts (@u.id)
+  	@u.destroy
+ 
+  	redirect_to root_path
+end
+
+  private
 
 	def verify_is_admin
   		(current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)

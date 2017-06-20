@@ -15,16 +15,20 @@
   </thead>
 
   <tbody>
-    <% @users.each do |idea| %>
+    <% @users.each do |user| %>
       <tr>
-        <td><%= idea.name %></td>
-        <td><%= idea.email %></td>
-        <td><%= idea.phone %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+        
+        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+
+        <td><%= link_to 'Destroy', "users/destroy/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<!-->"/destroy/#{user.id}"<-->
 <br>
 
 <!--%= will_paginate @users %-->

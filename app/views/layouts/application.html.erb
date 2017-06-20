@@ -29,9 +29,9 @@
     DOB <%= current_user.date_of_birth %><br>
     Address <%= current_user.address %><br>
     Phone <%= current_user.phone %><br>
-    <% if current_user.admin %>
+    <%# if current_user.admin %>
       <%= link_to "Listing Page", static_pages_show_path %>
-    <% end %>
+    <%# end %>
     <p>
   <strong>Image:</strong>
   <%= image_tag current_user.image.thumb.url %>
@@ -45,6 +45,6 @@
 <!--div id="calendar", style="size: 100px;"></div-->
 <%#=# month_calendar do |date| %>
   <%#= date %>
-<%# end %>
+<%#s end %>
 </body>
 </html>
