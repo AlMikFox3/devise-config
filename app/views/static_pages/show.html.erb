@@ -24,6 +24,11 @@
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
 
         <td><%= link_to 'Destroy', "users/destroy/#{user.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Block', "static_pages/block/#{user.id}", method: :get, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><% if (user.banned?) %> <%= link_to 'Unblock', "static_pages/unblock/#{user.id}", method: :get, data: { confirm: 'Are you sure?' } %> <% end %></td>
+
       </tr>
     <% end %>
   </tbody>

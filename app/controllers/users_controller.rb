@@ -23,6 +23,14 @@ class UsersController < ApplicationController
   	redirect_to static_pages_show_path
 end
 
+def block
+    @u = User.find(params[:id])
+    #puts (@u.id)
+    @u.banned = true
+ 
+    #redirect_to static_pages_show_path
+end
+
 	private
   def user_params
     params.require(:user).permit(:name,:date_of_birth,:address,:phone)

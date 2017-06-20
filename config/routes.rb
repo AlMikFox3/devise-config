@@ -58,6 +58,12 @@ Rails.application.routes.draw do
   get '/static_pages/show'
   #match '/static_pages/edit/:id' => 'devise/registrations#edit', :via => :get, :as => :static_pages_edit_path
   delete 'static_pages/users/destroy/:id' =>  'users#destroy'
+  get 'static_pages/block/:id' =>  'static_pages#block'
+  get 'static_pages/static_pages/block/:id' =>  'static_pages#block'
+
+  get 'static_pages/unblock/:id' =>  'static_pages#unblock'
+  get 'static_pages/static_pages/unblock/:id' =>  'static_pages#unblock'
+
   #delete 'static_pages/destroy/:id' =>  'static_pages#destroy'
   root 'static_pages#home'
   #get "/static_pages/users/edit/:id" => edit_user_registration_path
