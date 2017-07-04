@@ -1,6 +1,7 @@
 class LeavesController < ApplicationController
   before_action :set_leave, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
+  before_filter :verify_is_admin, :only => [:apply_index]
 
   # GET /leaves
   # GET /leaves.json
@@ -63,6 +64,14 @@ class LeavesController < ApplicationController
     end
   end
 
+  def apply_index
+    @leaves = Leave.where(:approval => false)
+
+    #puts (@u.id)
+    #@u.banned = true
+    #@u.save
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_leave
@@ -75,5 +84,9 @@ class LeavesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def leave_params
       params.require(:leave).permit(:ltype, :duration, :user_id)
+    end
+
+    def verify_is_admin
+      (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
     end
 end

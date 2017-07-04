@@ -66,6 +66,8 @@ Rails.application.routes.draw do
   get 'static_pages/unblock/:id' =>  'static_pages#unblock'
   get 'static_pages/static_pages/unblock/:id' =>  'static_pages#unblock'
 
+  get 'yy/leaves/applyindex' =>  'leaves#apply_index'
+
   #delete 'static_pages/destroy/:id' =>  'static_pages#destroy'
   root 'static_pages#home'
   #get "/static_pages/users/edit/:id" => edit_user_registration_path

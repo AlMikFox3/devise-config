@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Leaves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>User</th>
+      
+      
+
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaves.each do |leave| %>
+      <tr>
+         <% @u = User.find(leave.user_id) %>
+         <td><%= @u.name %></td>
+        <td><%= leave.ltype %></td>
+        <td><%= leave.duration %></td>
+        <td><%= leave.user_id %></td>
+       
+         
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
