@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620060511) do
+ActiveRecord::Schema.define(version: 20170704072123) do
+
+  create_table "leaves", force: :cascade do |t|
+    t.string   "ltype"
+    t.integer  "duration"
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "approval",   default: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -37,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170620060511) do
     t.string   "address"
     t.string   "phone"
     t.boolean  "admin",                  default: false
-    t.boolean  "banned",                 default: false
+    t.boolean  "banned",                 default: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

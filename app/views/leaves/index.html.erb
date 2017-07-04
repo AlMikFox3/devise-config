@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Leaves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>User</th>
+      <th>Approval Status</th>
+
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaves.each do |leave| %>
+      <tr>
+        <td><%= leave.ltype %></td>
+        <td><%= leave.duration %></td>
+        <td><%= leave.user_id %></td>
+
+        <% if leave.approval==false%>
+        <td>Pending</td>
+        <% else %>
+        <td><%= "Approved" %></td>
+        <% end %>
+
+        <td><%= link_to 'Show', leave %></td>
+        <td><%= link_to 'Edit', edit_leave_path(leave) %></td>
+        <td><%= link_to 'Destroy', leave, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leave', new_leave_path %>

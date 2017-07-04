@@ -1,0 +1,26 @@
+<%= form_for(@leave) do |f| %>
+  <% if @leave.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@leave.errors.count, "error") %> prohibited this leave from being saved:</h2>
+
+      <ul>
+      <% @leave.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ltype %><br>
+    <%= f.text_field :ltype %>
+  </div>
+  <div class="field">
+    <%= f.label :duration %><br>
+    <%= f.number_field :duration %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
