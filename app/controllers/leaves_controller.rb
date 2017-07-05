@@ -76,7 +76,8 @@ class LeavesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_leave
       @leave = Leave.find(params[:id])
-      if @leave.user_id != current_user.id
+      @u = User.find(current_user.id)
+      if @leave.user_id != current_user.id && @u.admin == false
         redirect_to leaves_path
       end
     end
