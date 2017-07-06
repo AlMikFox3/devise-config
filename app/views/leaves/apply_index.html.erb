@@ -24,6 +24,7 @@
         <td><%= leave.ltype %></td>
         <td><%= leave.duration %></td>
         <td><%= leave.user_id %></td>
+        <td><%= link_to 'Approve', "/approve/#{leave.id}", data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Delete', leave, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                  
       </tr>

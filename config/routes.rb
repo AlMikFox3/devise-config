@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_leaves
    resources :leaves
   devise_for :users, :path_prefix => 'my'
   resources :users 
@@ -62,6 +63,7 @@ Rails.application.routes.draw do
   delete 'static_pages/users/destroy/:id' =>  'users#destroy'
   get 'static_pages/block/:id' =>  'static_pages#block'
   get 'static_pages/static_pages/block/:id' =>  'static_pages#block'
+  get 'approve/:id' =>  'leaves#approve_leave'
 
   get 'static_pages/unblock/:id' =>  'static_pages#unblock'
   get 'static_pages/static_pages/unblock/:id' =>  'static_pages#unblock'

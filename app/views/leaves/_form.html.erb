@@ -15,9 +15,15 @@
     <%= f.label :ltype %><br>
     <%= f.text_field :ltype %>
   </div>
+  
+   <div class="field">
+    <%= f.label :from_date %><br>
+    <%= f.date_select :from_date %>
+  </div>
+
   <div class="field">
-    <%= f.label :duration %><br>
-    <%= f.number_field :duration %>
+    <%= f.label :to_date %><br>
+    <%= f.date_select :to_date %>
   </div>
   
   <div class="actions">

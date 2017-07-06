@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  leave_id: 1
+  leave_left: 1
+  leave_taken: 1
+
+two:
+  user_id: 1
+  leave_id: 1
+  leave_left: 1
+  leave_taken: 1

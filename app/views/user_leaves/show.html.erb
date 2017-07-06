@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_leave.user_id %>
+</p>
+
+<p>
+  <strong>Leave:</strong>
+  <%= @user_leave.leave_type %>
+</p>
+
+<p>
+  <strong>Leave left:</strong>
+  <%= @user_leave.leave_left %>
+</p>
+
+<p>
+  <strong>Leave taken:</strong>
+  <%= @user_leave.leave_taken %>
+</p>
+
+<%= link_to 'Edit', edit_user_leave_path(@user_leave) %> |
+<%= link_to 'Back', user_leaves_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170704072123) do
+ActiveRecord::Schema.define(version: 20170706172031) do
 
   create_table "leaves", force: :cascade do |t|
     t.string   "ltype"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20170704072123) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "approval",   default: false
+    t.date     "from_date"
+    t.date     "to_date"
+  end
+
+  create_table "user_leaves", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "leave_type"
+    t.integer  "leave_left",  default: 5
+    t.integer  "leave_taken", default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

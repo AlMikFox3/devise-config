@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing User Leaves</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Leave</th>
+      <th>Leave left</th>
+      <th>Leave taken</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_leaves.each do |user_leave| %>
+      <tr>
+        <td><%= user_leave.user_id %></td>
+        <td><%= user_leave.leave_type %></td>
+        <td><%= user_leave.leave_left %></td>
+        <td><%= user_leave.leave_taken %></td>
+        <td><%= link_to 'Show', user_leave %></td>
+        <td><%= link_to 'Edit', edit_user_leave_path(user_leave) %></td>
+        <td><%= link_to 'Destroy', user_leave, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User leave', new_user_leave_path %>

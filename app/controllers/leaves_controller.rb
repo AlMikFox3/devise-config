@@ -30,7 +30,9 @@ class LeavesController < ApplicationController
     #@leave = Leave.new(leave_params)
     @leave = current_user.leaves.create(leave_params)
     respond_to do |format|
+      @leave.duration = (@leave.to_date - @leave.from_date).to_i
       if @leave.save
+        LeaveMailer.welcome_email(@leave).deliver_later
         format.html { redirect_to @leave, notice: 'Leave was successfully created.' }
         format.json { render :show, status: :created, location: @leave }
       else
@@ -72,6 +74,19 @@ class LeavesController < ApplicationController
     #@u.save
   end
 
+  def approve_leave
+    @leave = Leave.find(params[:id])
+    @leave.approval = true
+    @u = User.find(@leave.user_id)
+        @ul = UserLeave.where(:user_id => @u.id, :leave_type => @leave.ltype)
+        @ul1 = @ul[0]
+        @ul1.leave_taken = @ul1.leave_taken + @leave.duration
+        @ul1.leave_left = @ul1.leave_left - @leave.duration
+        @ul1.save
+    @leave.save
+    LeaveMailer.approve_leave_mail(@leave).deliver_later
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_leave
@@ -84,7 +99,7 @@ class LeavesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def leave_params
-      params.require(:leave).permit(:ltype, :duration, :user_id)
+      params.require(:leave).permit(:ltype, :duration, :user_id, :from_date, :to_date)
     end
 
     def verify_is_admin
