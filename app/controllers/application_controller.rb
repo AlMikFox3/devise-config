@@ -36,6 +36,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :banned
     devise_parameter_sanitizer.for(:sign_in) << :banned
     devise_parameter_sanitizer.for(:account_update) << :banned
+
+    devise_parameter_sanitizer.for(:sign_up) << :joining_date
+    devise_parameter_sanitizer.for(:sign_in) << :joining_date
+    devise_parameter_sanitizer.for(:account_update) << :joining_date
   end
 
 def deny_banned

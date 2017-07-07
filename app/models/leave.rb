@@ -4,6 +4,8 @@ class Leave < ActiveRecord::Base
 	validate :exceeds_leave_balance
 	validate :prior_1_day
 	validate :sick_leave
+	validate :priv_leave
+	validate :from_to
 	def duration_contains_sunday
 		@lv = self
 		from = @lv.from_date
@@ -56,6 +58,26 @@ class Leave < ActiveRecord::Base
 					self.errors.add(:duration, "Only 1 SL is allowed in 2 months")
 				end
 			end
+		end
+	end
+
+	def priv_leave
+		if self.ltype == 'PL'
+			@u = User.find(self.user_id)
+			jd = @u.joining_date
+			td = Date.today
+			month = (td.year * 12 + td.month) - (jd.year * 12 + jd.month)
+			month.divmod(12)
+			if(month < 12)
+				self.errors.add(:duration, "PL applicable after 1 year of service only")
+			end
+
+		end
+	end
+
+	def from_to
+		if (self.from_date >= self.to_date)
+			self.errors.add(:duration, "Invalid From and To Dates")
 		end
 	end
 

@@ -40,6 +40,11 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :joining_date %><br>
+    <%= f.date_select :joining_date %>
+  </div>
+
    <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
