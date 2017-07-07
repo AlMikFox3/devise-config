@@ -1,4 +1,5 @@
 <%= form_for(@leave) do |f| %>
+  <div class="field">
   <% if @leave.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@leave.errors.count, "error") %> prohibited this leave from being saved:</h2>
@@ -10,10 +11,11 @@
       </ul>
     </div>
   <% end %>
+  </div>
 
   <div class="field">
     <%= f.label :ltype %><br>
-    <%= f.text_field :ltype %>
+    <%= f.select :ltype, ['chose leave-type','CL','PL','SL','ML','UL'] %>
   </div>
   
    <div class="field">

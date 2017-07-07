@@ -29,6 +29,7 @@ class LeavesController < ApplicationController
   def create
     #@leave = Leave.new(leave_params)
     @leave = current_user.leaves.create(leave_params)
+    
     respond_to do |format|
       @leave.duration = (@leave.to_date - @leave.from_date).to_i
       if @leave.save
