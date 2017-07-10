@@ -29,13 +29,33 @@
     DOB <%= current_user.date_of_birth %><br>
     Address <%= current_user.address %><br>
     Phone <%= current_user.phone %><br>
-    <%# if current_user.admin %>
+    <% if current_user.admin %>
       <%= link_to "Listing Page", static_pages_show_path %>
-    <%# end %>
+    <% end %>
     <p>
   <strong>Image:</strong>
   <%= image_tag current_user.image.thumb.url %>
 </p>
+    <table align = "center">
+  <thead>
+    <tr>
+      <th>Leave Type</th>
+      <th>&nbsp; &nbsp; Leaves Taken</th>
+      <th>&nbsp; &nbsp; Leaves Left</th>
+      <!--th colspan="5"></th-->
+    </tr>
+  </thead>
+  <% @ul = current_user.user_leaves %>
+  <tbody>
+    <% @ul.each do |ul1| %>
+      <tr>
+        <td><%= ul1.leave_type %></td>
+        <td><%= ul1.leave_taken %></td>
+        <td><%= ul1.leave_left %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <% else %>
     <!--%= link_to 'Login', new_user_session_path %-->
