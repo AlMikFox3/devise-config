@@ -12,23 +12,45 @@
     </div>
   <% end %>
   </div>
-
+<table>
+<tr>
+<td>
   <div class="field">
     <%= f.label :ltype %><br>
     <%= f.select :ltype, ['chose leave-type','CL','PL','SL','ML','UL'] %>
-  </div>
-  
+  </div></td>
+  <td>
    <div class="field">
     <%= f.label :from_date %><br>
     <%= f.date_select :from_date %>
   </div>
-
+  </td>
+<td>
   <div class="field">
     <%= f.label :to_date %><br>
     <%= f.date_select :to_date %>
-  </div>
-  
+  </div></td>
+  <td>
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div></td>
+  </tr>
+  </table>
+  <% @lvs = current_user.leaves %>
+
+<%= month_calendar events: @lvs do |date, lvs|  %>
+    <%= date %>
+    <% lvs.each do |lv| %>
+    
+        <% if lv.approval == true %>
+            <%= lv.ltype %> for <%= lv.duration %> days approved
+
+        <% else %>
+            <%= lv.ltype %>for <%= lv.duration %> days pending approval
+
+        <% end %>
+
+  <% end %>
+
+<% end %>
 <% end %>

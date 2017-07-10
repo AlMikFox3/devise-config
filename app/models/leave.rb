@@ -8,6 +8,10 @@ class Leave < ActiveRecord::Base
 	validate :from_to
 	validate :valid_lt
 
+	def start_time
+        self.from_date ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship
+    end
+
 	def valid_lt
 		if self.ltype == "chose leave-type"
 			self.errors.add(:ltype, "Choose a valid Leave Type")
