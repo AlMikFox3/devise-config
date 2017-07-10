@@ -6,6 +6,15 @@ class Leave < ActiveRecord::Base
 	validate :sick_leave
 	validate :priv_leave
 	validate :from_to
+	validate :valid_lt
+
+	def valid_lt
+		if self.ltype == "chose leave-type"
+			self.errors.add(:ltype, "Choose a valid Leave Type")
+		end
+
+	end
+
 	def duration_contains_sunday
 		@lv = self
 		from = @lv.from_date
@@ -25,6 +34,7 @@ class Leave < ActiveRecord::Base
 	end
 
 	def exceeds_leave_balance
+		if(self.ltype != "chose leave-type" )
 		 @ul = UserLeave.where(:user_id => self.user_id, :leave_type => self.ltype)
 		#@ul = UserLeave.where(:leave_type => self.ltype, :user_id => self.user_id)
 		@ul1 = @ul[0]
@@ -33,6 +43,7 @@ class Leave < ActiveRecord::Base
 		if d2 < d1
 			self.errors.add(:duration, "exceeds leave balance by #{d1-d2} days")
 		end
+	end
 		
 	end
 
