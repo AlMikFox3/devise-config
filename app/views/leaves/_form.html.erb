@@ -12,27 +12,31 @@
     </div>
   <% end %>
   </div>
-<table>
+<table style = "margin-left: 100px;">
 <tr>
 <td>
   <div class="field">
-    <%= f.label :ltype %><br>
+    <%= f.label :ltype %>
     <%= f.select :ltype, ['chose leave-type','CL','PL','SL','ML','UL'] %>
+    &nbsp; &nbsp;
   </div></td>
   <td>
    <div class="field">
-    <%= f.label :from_date %><br>
+    <%= f.label :from_date %>
     <%= f.date_select :from_date %>
+  &nbsp; &nbsp;
   </div>
   </td>
 <td>
   <div class="field">
-    <%= f.label :to_date %><br>
+    <%= f.label :to_date %>
     <%= f.date_select :to_date %>
+  &nbsp; &nbsp;
   </div></td>
   <td>
   <div class="actions">
     <%= f.submit %>
+  &nbsp; &nbsp;
   </div></td>
   </tr>
   </table>
