@@ -17,11 +17,13 @@
             <% end %>
             <% if current_user %>
                 <% if current_user.admin == true %>
+                    <li><%= link_to 'Employees', static_pages_show_path %></li>
                     <li><%= link_to 'Leave Status', user_leaves_path %></li>
                     <li><%= link_to 'Leaves Applied', '/yy/leaves/applyindex' %></li>
                 <% end %>
                 <li><%= link_to 'Apply Leave', new_leave_path %></li>
                 <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+                <li><%= link_to 'Leaves', leaves_path %></li>
                 <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
                 <li><%= link_to 'Login', new_user_session_path %></li>

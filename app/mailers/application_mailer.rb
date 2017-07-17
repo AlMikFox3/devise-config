@@ -8,10 +8,11 @@ class ApplicationMailer < ActionMailer::Base
     @adminp =@admint[0]
     @url  = 'http://localhost:3000/leaves'
     mail(to: @adminp.email, subject: 'applied for leave')
+    mail(to: @user.manager_email, subject: 'applied for leave')
   end
 
-      def approve_user(user)
-      @user = user
+  def approve_user(user)
+    @user = user
     @admint = User.where(:admin => true)
     @adminp =@admint[0]
     #@url  = 'http://example.com/login'

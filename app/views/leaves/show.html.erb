@@ -16,6 +16,16 @@
 </p>
 
 <p>
+  <strong>From:</strong>
+  <%= @leave.from_date %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @leave.to_date %>
+</p>
+
+<p>
   <strong>Approval Status:</strong>
   <% if @leave.approval==false%>
   	<%= "Approval Pending" %>

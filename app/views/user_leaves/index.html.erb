@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Financial Year</th>
       <th>Leave</th>
       <th>Leave left</th>
       <th>Leave taken</th>
@@ -17,6 +18,7 @@
     <% @user_leaves.each do |user_leave| %>
       <tr>
         <td><%= user_leave.user_id %></td>
+        <td><%= user_leave.fin_year %></td>
         <td><%= user_leave.leave_type %></td>
         <td><%= user_leave.leave_left %></td>
         <td><%= user_leave.leave_taken %></td>

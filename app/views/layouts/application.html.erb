@@ -29,9 +29,7 @@
     DOB <%= current_user.date_of_birth %><br>
     Address <%= current_user.address %><br>
     Phone <%= current_user.phone %><br>
-    <% if current_user.admin %>
-      <%= link_to "Listing Page", static_pages_show_path %>
-    <% end %>
+   
     <p>
   <strong>Image:</strong>
   <%= image_tag current_user.image.thumb.url %>
@@ -42,6 +40,7 @@
       <th>Leave Type</th>
       <th>&nbsp; &nbsp; Leaves Taken</th>
       <th>&nbsp; &nbsp; Leaves Left</th>
+      <th>&nbsp; &nbsp; Financial Year</th>
       <!--th colspan="5"></th-->
     </tr>
   </thead>
@@ -52,6 +51,7 @@
         <td><%= ul1.leave_type %></td>
         <td><%= ul1.leave_taken %></td>
         <td><%= ul1.leave_left %></td>
+        <td><%= ul1.fin_year %></td>
       </tr>
     <% end %>
   </tbody>

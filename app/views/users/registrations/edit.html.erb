@@ -28,6 +28,18 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+   <div class="field">
+    <%= f.label :manager_email %>
+    <% @ml = Array.new %>
+    <% @u = User.all %>
+    <% @u.each do |us| %>
+      <% @ml.push(us.email) %>
+    <% end %>
+
+    <%= f.select :manager_email, @ml %>
+    &nbsp; &nbsp;
+  </div></td>
+  
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
